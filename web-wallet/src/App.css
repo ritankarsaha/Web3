@@ -1,42 +1,142 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+:root {
+  --primary-color: #2979FF; /* A more modern blue */
+  --secondary-color: #FFC107; /* Amber for accents */
+  --text-color: #212121; /* Darker text for better contrast */
+  --background-color: #f5f5f5; /* Softer background */
+  --card-background: #FFFFFF;
+  --card-shadow: rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+  --border-radius: 8px;
+  --transition-duration: 0.3s ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Use a more modern font */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure footer sticks to bottom */
+}
+
+.app-container {
+  max-width: 900px; /* Slightly wider container */
+  margin: 2rem auto;
   padding: 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--card-background);
+  box-shadow: 0 4px 12px var(--card-shadow);
+  flex-grow: 1; /* Allow content to take up available space */
+}
+
+.app-header {
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  font-size: 1rem;
+  color: #757575; /* Slightly lighter paragraph text */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.mnemonic-section {
+  margin-bottom: 2rem;
 }
 
-.card {
-  padding: 2em;
+.mnemonic-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+.input-wrapper { /* Styles for the input and button container */
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  width: 100%;
+  box-sizing: border-box;
+  margin-right: 1rem; /* Space between input and button */
+  transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(41, 121, 255, 0.3); /* Softer focus shadow */
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+button:hover {
+  background-color: #1A64F2; /* Darker shade on hover */
+}
+
+.wallets-section {
+  margin-top: 2rem;
+}
+
+.wallet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+}
+
+.wallet-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  text-align: left;
+  transition: transform 0.2s; /* Add a subtle hover effect */
+}
+
+.wallet-card:hover {
+  transform: translateY(-4px); /* Move card up slightly on hover */
+}
+
+.wallet-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.placeholder-container {
+  text-align: center;
+  padding: 2rem;
+  color: #9E9E9E; /* Light gray placeholder text */
+}
+
+.app-footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem; /* Add some space between content and footer */
+  background-color: #eee;
+}
+
+/* Basic reset for consistent styling */
+* {
+  box-sizing: border-box;
 }
