@@ -144,62 +144,89 @@ export function TokenLaunchpad() {
     }
 
     return (
-        <div className="flex min-h-screen flex-col items-center justify-center p-4">
-            <div className="w-full max-w-md space-y-6 rounded-lg bg-white p-8 shadow-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-900">
+        <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+            <div className="w-full max-w-lg rounded-xl bg-white p-10 shadow-2xl">
+                <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
                     Solana Token Launchpad
                 </h1>
-                
+    
                 {!connected ? (
-                    <div className="text-center text-red-500">
-                        Please connect your wallet to create tokens
+                    <div className="text-center text-lg text-red-600 font-medium">
+                        Please connect your wallet to create tokens.
                     </div>
                 ) : (
-                    <div className="space-y-4">
-                        <input
-                            className="w-full rounded-lg border p-3"
-                            type="text"
-                            placeholder="Token Name"
-                            value={tokenName}
-                            onChange={(e) => setTokenName(e.target.value)}
-                        />
-                        
-                        <input
-                            className="w-full rounded-lg border p-3"
-                            type="text"
-                            placeholder="Token Symbol"
-                            value={tokenSymbol}
-                            onChange={(e) => setTokenSymbol(e.target.value)}
-                        />
-                        
-                        <input
-                            className="w-full rounded-lg border p-3"
-                            type="text"
-                            placeholder="Image URL"
-                            value={imageUrl}
-                            onChange={(e) => setImageUrl(e.target.value)}
-                        />
-                        
-                        <input
-                            className="w-full rounded-lg border p-3"
-                            type="number"
-                            placeholder="Initial Supply"
-                            value={initialSupply}
-                            onChange={(e) => setInitialSupply(e.target.value)}
-                        />
-                        
+                    <form className="space-y-6">
+                        {/* Token Name */}
+                        <div>
+                            <label className="block text-lg font-medium text-gray-700 mb-2">
+                                Token Name
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="e.g., MyToken"
+                                value={tokenName}
+                                onChange={(e) => setTokenName(e.target.value)}
+                                className="w-full rounded-lg border border-gray-300 p-4 text-gray-800 shadow-sm focus:border-purple-600 focus:ring-2 focus:ring-purple-600"
+                            />
+                        </div>
+    
+                        {/* Token Symbol */}
+                        <div>
+                            <label className="block text-lg font-medium text-gray-700 mb-2">
+                                Token Symbol
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="e.g., MTK"
+                                value={tokenSymbol}
+                                onChange={(e) => setTokenSymbol(e.target.value)}
+                                className="w-full rounded-lg border border-gray-300 p-4 text-gray-800 shadow-sm focus:border-purple-600 focus:ring-2 focus:ring-purple-600"
+                            />
+                        </div>
+    
+                        {/* Image URL */}
+                        <div>
+                            <label className="block text-lg font-medium text-gray-700 mb-2">
+                                Image URL
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="e.g., https://example.com/image.png"
+                                value={imageUrl}
+                                onChange={(e) => setImageUrl(e.target.value)}
+                                className="w-full rounded-lg border border-gray-300 p-4 text-gray-800 shadow-sm focus:border-purple-600 focus:ring-2 focus:ring-purple-600"
+                            />
+                        </div>
+    
+                        {/* Initial Supply */}
+                        <div>
+                            <label className="block text-lg font-medium text-gray-700 mb-2">
+                                Initial Supply
+                            </label>
+                            <input
+                                type="number"
+                                placeholder="e.g., 1000000"
+                                value={initialSupply}
+                                onChange={(e) => setInitialSupply(e.target.value)}
+                                className="w-full rounded-lg border border-gray-300 p-4 text-gray-800 shadow-sm focus:border-purple-600 focus:ring-2 focus:ring-purple-600"
+                            />
+                        </div>
+    
+                        {/* Submit Button */}
                         <button
                             onClick={createToken}
                             disabled={isLoading}
-                            className="w-full rounded-lg bg-purple-600 px-4 py-3 text-white hover:bg-purple-700 disabled:bg-gray-400"
+                            className="w-full rounded-lg bg-purple-600 px-6 py-4 text-white font-semibold text-xl tracking-wide shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
                         >
                             {isLoading ? 'Creating Token...' : 'Create Token'}
                         </button>
-                    </div>
+                    </form>
                 )}
             </div>
         </div>
     );
+    
+    
 }
 
 export default TokenLaunchpad;
